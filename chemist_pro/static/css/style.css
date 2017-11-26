@@ -1,0 +1,209 @@
+/* 代码整理：大头网 www.datouwang.com */
+html,body,p,h1,h2,h3,h4,h5,h6,form,input,textarea,select,button,fieldset,legend,img,ul,ol,li,dl,dt,dd,th,td,pre,blockquote{margin:0;padding:0}
+html{height:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+body{background: #f0f0f0;color:#000;}
+body,button,input,select,textarea,h2,h3,h4,h5,h6{font:14px 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial}
+img,fieldset{border:0;vertical-align:middle}
+input{padding:0;margin:0;outline:none;}
+a{text-decoration:none;color:#4c4c4c;}
+a:hover{text-decoration:none;}
+ul,li,ol{list-style:none}
+img{max-width:100%;}
+hr{
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
+}
+.clear{clear:both;height:0;line-height:0;font-size:0;visibility:hidden;overflow:hidden}
+.clearfix:after{visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;zoom:1;}
+.l{float:left;}.r{float:right;}
+/*reset样式重置*/
+.btn3{
+    position:fixed;
+    z-index:3;
+    bottom:0px;
+    border-top:1px solid #999999;
+    background:#e6e6e6;
+    width:100%;
+    text-align:center;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;}
+.menu{
+    position:relative;
+    float:left;
+    width:25%;
+    height:50px;
+    line-height:50px;
+    background:#fff;
+    border-right:1px solid #ebebeb;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;}
+.menu:last-child{border-right:none;}
+.new-sub{position:absolute;
+      bottom:60px;
+      z-index:10;
+      width:100%;
+      padding: 0px 10px;
+      background: #fff;
+      box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      border: 1px solid #EEEEEE;
+      border-radius: 5px;
+      display:none;}
+.new-sub li{width: 100%;
+        background:#fff;
+        float:none;
+        box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        border-top:1px solid #f2f2f2;}
+.new-sub li a{display:block;
+          height:50px;
+          line-height:50px;
+          text-align:left;
+          background:#fff;
+          color:#333;
+          border:none;
+          text-align:center;
+          font-size:16px;}
+/* .sanjiao{position:absolute;bottom:5px;right:5px;width:0;height:0;border:5px solid transparent;border-right:5px solid #000;border-bottom:5px solid #000;opacity:.5;} */
+.bt-name{font-size:14px;color:rgb(230, 114, 114);}
+.bt-name a{
+    display:block;
+    font-size:14px;color:rgb(73, 73, 73);
+    margin-top: 12px;
+}
+   
+
+.cart_num{
+    width: 18px;
+    height: 18px;
+    background: rgb(231, 26, 26);
+    position: absolute;
+    z-index: 3;
+    left: 55px;
+    top: -3px;
+    border-radius:20px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 18px;
+    color: white;
+}
+.cart_img{
+    position: absolute;
+    left:22px;
+    top:-8px;
+    width: 48px;
+    height: 45px;
+}
+
+
+.new-sub .tiggle{
+	width:0px;
+      height:0px;
+      position:absolute;
+      left:50%;
+      margin-left:-10px;
+      bottom:-9px;
+      border-top:10px solid #EEEEEE;
+      border-left:10px solid transparent;
+      border-right:10px solid transparent;
+      z-index:10;
+  }
+  .new-sub .innertiggle{
+  	width:0px;
+      height:0px;
+      position:absolute;
+      left:50%;
+      margin-left:-9px;
+      bottom:-8px;
+      border-top:9px solid white;
+      border-left:9px solid transparent;
+      border-right:9px solid transparent;
+      z-index:11;
+  }
+
+  .header {
+	width: 100%;
+	padding:11px;
+	height:45px;
+	line-height:27px;
+	background: url(../images/header_bgc.jpg) center center no-repeat;
+	background-size: 100%;
+	position: fixed;
+	left:0;
+	top:0;
+    z-index: 1;
+}
+
+.addrBox {
+	width:45%;
+	height:30px;
+}
+.addrBox img {
+	height:20px;
+	vertical-align: middle;
+	margin-right:10px;
+}
+.addrBox .down_arrow {
+	width:12px;
+	height: 10px;
+}
+.addrBox span {
+	width:30px;;
+	height:100px;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+	color: #FFF;
+	vertical-align: middle;
+	margin-left:-8px;
+}
+.fl{
+	float:left!important;
+	}
+	
+.fr{
+	float:right!important;
+    }
+.searchBox {
+    position:relative;
+    widows: 130px !important;
+}
+.searchBox input {
+	width:100%;
+	height:25px;
+	border-radius: 25px;	
+	font-size:12px;
+	padding-left:27px;
+	vertical-align: middle;
+	background-color: #ec7373;
+	border:none;
+	color: #FFF;
+}
+.searchBox input::-webkit-input-placeholder{
+    color: #FFF;
+    opacity:1;
+}
+.searchBox img {
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+	position:absolute;
+	top:5px;
+	left:9px;
+}
+
+.empty_header{
+    height: 44px;
+}
+
+
+
+
+
+
+
+
+
+

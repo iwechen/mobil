@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="掌上药店" />
+    <meta name="description" content="掌上药店" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>用户登陆</title>
+    <style>
+        html{
+            font-size: 100px;
+            cursor: pointer;
+        }
+        .img-circle{
+            width: 50px;
+        }
+        .btn{
+            width: 100%;
+            /* height: 40px; */
+            font-size: 14px;
+            border-radius: 40px;
+        }
+    </style>
+    <script>		 
+        ;(function(win,doc){
+            var resize='orientationchange' in window ? 'orientationchange' : 'resize';
+            function change(){
+                var htm=doc.documentElement;
+                htm.style.fontSize=(doc.documentElement.clientWidth/750)*100+'px';
+            }
+            win.addEventListener(resize,change,false);
+            win.addEventListener('load',change,false);
+            doc.addEventListener('DOMContentLoaded',change,false);
+        })(window,document);
+    </script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <style>
+    div[class="col-"]{
+        border: 1px solid rgb(138, 138, 161);
+    }
+
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 顶部空白页 -->
+            <div class="col-xm-12">
+                <h4 class="page-header text-center">欢迎登陆</h4>
+
+
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-bottom">
+                    <form role="form" action="" method="post" class="login-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">用户名</label>
+                            <input type="text" name="form-username" placeholder="电话号码或邮箱..." class="form-username form-control input-error" id="form-username">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">密码</label>
+                            <input type="password" name="form-password" placeholder="Password..." class="form-password form-control input-error" id="form-password">
+                        </div>
+                        
+                        <div class="col-sm-6 pull-left">
+                            <p><a href="register.html">去注册</a></p>
+                        </div>
+                        <div class="col-sm-6 pull-right">
+                            <p><a href="#">忘记密码</a></p>
+                        </div>
+        
+                        <button type="submit" class="btn">登陆</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

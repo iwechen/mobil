@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+<title>新品推荐</title>
+{% endblock title %}
+{% block fiels %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/new_goods.css' %}" />
+{% endblock fiels %}
+
+{% block menu %}
+
+<style type="text/css">
+.row{
+
+    border-top: 5px solid #F0F0F0;
+}
+.sort{
+    /*border:1px solid #E0E0E0;*/
+    border-radius: 9px;
+    margin: 2px 3px;
+    padding-left:6px;
+    padding-right:6px;
+    padding-top:2px;
+    padding-bottom:2px;
+    top: 10px;
+    left: 20px;
+    height: 20px;
+}
+.checked{
+    background: #2894FF;
+    color: #FFF;
+}
+</style>
+<script type="text/javascript">
+    $(function(){
+        $('.cart_add').click(function(){
+            goods_id = $(this).attr('id')
+            // shop_id = $(this).attr('type')
+            csrf = $('input[name="csrfmiddlewaretoken"]').val()
+            send_msg = {'goods_id':goods_id,'csrfmiddlewaretoken':csrf}
+            $.post('/cart/add_cart/',send_msg,function(data){
+                if (data.ret!=5){
+                    alert("data.arrmsg")
+                }
+            })
+        })
+    })
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 text-center">
+            <a class="sort checked" href="#">默认</a>
+        </div>
+        <div class="col-xs-3 text-center">
+            <a class="sort" href="#">销量</a>
+        </div>
+        <div class="col-xs-3 text-center">
+            <a class="sort" href="#">价格</a>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- 商品区 -->
+<div class="container">
+    <div class="row">
+    {% csrf_token %}
+    <!-- <h1>&nbsp;</h1> -->
+        {% for temp in goods %}
+        <div class="col-md-6 col-xs-6">
+            <img src="/static/media/{{ temp.image }}" alt="11" class="img-responsive ">
+            <h4>{{ temp.name }}</h4>
+            <p class="explain">主治：{{ temp.desc }}</p>
+            <div class="col-md-8 col-xs-8">
+                <h4 class="price">￥{{ temp.price }}</h4>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <img class="cart_add" type ="{{ temp.shop_name }}" id="{{ temp.id }}" src="{% static 'images/car1.png' %}">
+            </div>
+        </div>
+        {% endfor %}
+        <hr>
+
+<!-- 顶部空白页面 -->
+<div class="container">
+    <div class="empty_buttom text-center">到顶了，扯疼我了！</div>
+</div>
+
+{% endblock menu %}
+  
+
+
+
+
+
+
+
+
+
+ 
+

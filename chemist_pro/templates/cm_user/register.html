@@ -1,0 +1,160 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="注册" />
+    <meta name="description" content="注册也页面" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>用户注册</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'bootstrap/js/jquery-1.12.4.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script>
+    $(function(){
+        var err_tel = false;
+        var err_pwd = false;
+        var err_cocde = false;
+        var error_allow = false;
+        $('.errmsg').hide()
+
+        // 判断电话号码是否合法
+        $('#inputtel').blur(function(){
+            check_tel();
+        });        
+        // 判断密码
+        $('#inputPassword3').blur(function(){
+            check_pwd();
+        });
+        // 判断验证码
+        $('#inputtext').blur(function(){
+            check_code();
+        });
+        // 判断同意
+        $('#allow').click(function() {
+            if($(this).is(':checked'))
+            {
+                error_allow= false;
+                $('.errmsg').hide();
+            }
+            else
+            {
+                error_allow = true;
+                $('.errmsg').text('请勾选同意').show();
+            }
+        });
+
+        // 判断电话号码函数
+        function check_tel(){
+            var re = /^((13[0-9])|(14[7])|(15([0-3]|[5-9]))|(17[6-8])|(18[0-3,5-9]))\d{8}$/
+            if (re.test($('#inputtel').val())){
+                err_tel = false; 
+                $('.errmsg').hide()
+            }
+            else{
+                err_tel = true; 
+                $('.errmsg').text('电话号码不合法！').show()
+            }
+        }
+
+        function check_pwd() {
+            var re = /\w{3,20}/
+            if (re.test($('#inputPassword3').val())){
+                err_pwd = false; 
+                $('.errmsg').hide()
+            }
+            else{
+                err_pwd = true; 
+                $('.errmsg').text('密码必须是字母数字下划线').show()
+            }
+        }
+
+        function check_code(){
+            var re = /\d{4}/
+            if (re.test($('#inputtext').val())){
+                err_code = false; 
+                $('.errmsg').hide()
+            }
+            else{
+                err_code = true; 
+                $('.errmsg').text('验证码为4位数字').show()
+            }
+        };
+
+        $('#form_submit').submit(function(){
+            check_tel();
+            check_pwd();
+            check_code();
+            if (err_tel==false && err_pwd==false && err_code==false && error_allow==false){
+                return true;
+            }
+            else{
+                return false;
+            }
+        })
+
+
+    })
+
+    </script>
+    <style>
+        .btn{
+            width: 100%;
+        }
+        .errmsg{
+            color: red;
+            font-size: 10px;  
+        }
+
+</style>
+</head>
+<body>
+ <div class="container">
+    <div>
+         <h4 class="header-page text-center">欢迎注册</h4>
+    </div>
+    <form id="form_submit" class="form-horizontal" method="post" action="/user/register_check/">
+    {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-10">
+            <input type="tel" class="form-control" id="inputtel" name="tel" placeholder="请输入手机号码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" name="pwd" placeholder="请设置登陆密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-7">
+                <input type="text" class="form-control" id="inputtext" name="check_code" placeholder="请输入收到的验证码">
+            </div>
+            <div class="col-xs-5">
+                <button type="submit" class="btn btn-primary text-center">发送验证码</button>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                <input type="checkbox" checked="checked" id="allow"> 同意用户协议
+                </label>
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <input type="submit" class="btn btn-default" value="立即注册"></input>
+            </div>            
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <p class="errmsg">{{errmsg}}</p>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

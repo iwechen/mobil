@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+<title>掌上药店</title>
+{% endblock title %} 
+
+
+{% block menu %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <marquee direction="alternate">欢迎光临，双十一特惠，下单24小时送达</marquee>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- 商品区 -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-xs-3 text-center">
+            <p></p>
+            <img src="{% static 'images/chart.png' %}" alt="11" class="img-circle">
+            <h6>医药咨询</h6>
+        </div>
+        <div class="col-md-3 col-xs-3 text-center">
+            <p></p>
+            <img src="{% static 'images/Dribbble.png' %}" alt="11" class="img-circle">
+            <h6>在线就诊</h6>
+        </div>
+        <div class="col-md-3 col-xs-3 text-center">
+            <p></p>
+            <img src="{% static 'images/Bebo.png' %}" alt="11" class="img-circle">
+            <h6>健康热线</h6>
+        </div>
+        <div class="col-md-3 col-xs-3 text-center">
+            <p></p>
+            <img src="{% static 'images/Google.png' %}" alt="11" class="img-circle">
+            <h6>商务合作</h6>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<!-- 商品区 -->
+<div class="container">
+    <div class="row">
+        {% for temp in type_goods %}
+        <div class="col-md-3 col-xs-3 text-center">
+            <p></p>
+            <img src="static/media/{{ temp.image }}" alt="11" class="img-circle">
+            <h6>{{ temp.name }}</h6>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock menu %}
+
+

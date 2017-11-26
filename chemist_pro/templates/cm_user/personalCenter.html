@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+    {% block title %}
+    <title>个人中心</title>
+    {% endblock title %}
+{% block menu %}
+    <style>
+        div[class*="col-"]{
+            /* border: 1px solid rgb(60, 60, 223); */
+        }
+        .header_img{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 10px;
+            left: 9px;
+        }
+        .setting{
+            height: 70px;
+            line-height: 60px;
+            font-size: 12px;
+            color: rgb(75, 75, 75);
+        }
+        .people_header{
+            background: rgb(144, 204, 250);
+        }
+    .my_shop{
+        display: block;
+    }
+    .apply_box{
+        display: block;
+    }
+    .apply_box{
+        height: 40px;
+        line-height: 40px;
+        background: rgb(253, 202, 62);
+        margin: 10px 30%;
+        padding:1px;
+        border-radius: 40px;
+        color: rgb(226, 77, 104);
+        font-size: 14px;
+    }
+</style>
+{% block top_navigation %}{% endblock top_navigation %}
+{% block splider %}{% endblock splider %}
+    <div class="people_header container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="header-page text-center">个人中心</h4>
+            </div>
+            <div class="col-xs-6">
+                <img src="{% static 'images/timg.jpg' %}" alt=""class="header_img img-circle img-responsive">
+                <div class="col-xs-8 col-xs-offset-4 ">
+                    <h4 class="header-page">{{ passport.username }}</h4>
+                    <p class="header-page">{{ passport.tel }}</p>
+                </div>
+            </div>
+            <div class="setting col-xs-6">
+                <p class="pull-right">用户管理 &gt;&gt;</p>   
+            </div>
+            <div class="col-xs-12">
+                <p>普通会员 积分：8820</p>
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            {% if passport.is_shop %}
+            <!-- 店铺状态 -->
+            <div class="my_shop">
+                <div class="col-xs-12">我的店铺</div>
+                <div class="col-xs-6">
+                    <h4 class="text-center">36</h4>
+                    <p class="text-center">商品总数</p>
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center">8</h4>
+                    <p class="text-center">待处理订单</p>
+                </div>
+            </div>
+            {% else %}
+            <!-- 申请开店 -->
+            <div class="apply_shop">
+                <div class="col-xs-12">
+                    <div class="apply_box text-center">
+                            <h4>我要开店</h4>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>我的订单</p>
+            </div>
+            <div class="col-xs-6" >
+                <h5 class="text-center">6</h5>
+                <p class="text-center">全部订单</p>
+            </div>
+            <div class="col-xs-6" >
+                <h5 class="text-center">6</h5>
+                <p class="text-center">已完成订单</p>
+            </div>
+            <div class="col-xs-3" >
+                <h5 class="text-center">6</h5>
+                <p class="text-center">待付款</p>
+            </div>
+            <div class="col-xs-3" >
+                    <h5 class="text-center">8</h5>
+                    <p class="text-center">待接单</p>
+            </div>
+            <div class="col-xs-3" >
+                    <h5 class="text-center">6</h5>
+                    <p class="text-center">已发货</p>
+            </div>
+            <div class="col-xs-3" >
+                <h5 class="text-center">12</h5>
+                <p class="text-center">待评价</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+{% endblock menu %}
+
+<!-- 底部菜单代码 开始 -->
+<div class="btn3 clearfix">
+        <div class="menu" id="home" >
+            <div class="bt-name">
+                <a href="index.html">首页<img class="cart_img" src="images/index.png" alt=""></a>  
+            </div>
+        </div><!--menu-->
+        <div class="menu">
+            <div class="bt-name">
+                <a href="new_recommend.html">新品推荐<img class="cart_img" src="images/cart_img.png" alt=""></a>
+            </div>
+        </div><!--menu-->
+        <div class="menu">
+            <div class="bt-name">
+                <a href="cart.html">购物车<img class="cart_img" src="images/cart_img.png" alt=""></a>
+            </div>
+            <div class="cart_num">6</div>
+        </div><!--menu-->
+        <div class="menu">
+            <div class="bt-name">
+                <a href="personalCenter.html">个人中心<img class="cart_img" src="images/parsonalcenter.png" alt=""></a> 
+            </div>
+        </div><!--menu-->
+    </div><!--btn3-->
+    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+</body>
+</html>
