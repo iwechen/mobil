@@ -59,9 +59,48 @@ class SingleLinkList(object):
                 cur = cur.next
             cur.next = node
 
+            
+    def insert(self, pos, item):
+        """指定位置添加元素"""
+        # 若指定位置pos为第一个元素之前，则执行头部插入
+        if pos <= 0:
+            self.add(item)
+        # 若指定位置超过链表尾部，则执行尾部插入
+        elif pos > (self.length()-1):
+            self.append(item)
+        # 找到指定位置
+        else:
+            node = SingleNode(item)
+            count = 0
+            # pre用来指向指定位置pos的前一个位置pos-1，初始从头节点开始移动到指定位置
+            pre = self._head
+            while count < (pos-1):
+                count += 1
+                pre = pre.next
+            # 先将新节点node的next指向插入位置的节点
+            node.next = pre.next
+            # 将插入位置的前一个节点的next指向新节点
+            pre.next = node
 
-    def remove(self):
-        '''链表删除元素'''
+    def remove(self,item):
+        """删除节点"""
+        cur = self._head
+        pre = None
+        while cur != None:
+            # 找到了指定元素
+            if cur.item == item:
+                # 如果第一个就是删除的节点
+                if not pre:
+                    # 将头指针指向头节点的后一个节点
+                    self._head = cur.next
+                else:
+                    # 将删除位置前一个节点的next指向删除位置的后一个节点
+                    pre.next = cur.next
+                break
+            else:
+                # 继续按链表后移节点
+                pre = cur
+                cur = cur.next
 
 
 if __name__ == '__main__':
@@ -78,4 +117,11 @@ if __name__ == '__main__':
     print(sll.length())
 
     sll.append(8)
+
+
+
+
+
+
+
 
